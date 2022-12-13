@@ -1,10 +1,40 @@
 <h1>About</h1>
 <p>cmsite: wcms use <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> as submodule</p>
 <h1>HW</h1>
+<h2>w12</h2>
+<p><a href="https://mdecp2022.github.io/site-leekuchu006/content/Brython.html?src=https://gist.githubusercontent.com/leekuchu006/a1031dd57fb343582be809b2de6c3f3c/raw/5b70a32d4314a2781acf383f11bf154ddcc7c9b6/w12%2520%25E6%25BA%25AB%25E5%25BA%25A6%25E8%25BD%2589%25E6%258F%259B%25E4%25BD%259C%25E6%25A5%25AD">溫度轉換程式</a></p>
+<p><img alt="" height="395" src="/images/螢幕擷取畫面 2022-12-13 203814.png" width="502"/></p>
+<!-- 
+在動態網站頁面中啟用 Brython 執行環境的用法, 請注意動態網站執行所在路徑
+-->
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['/static/','/downloads/py/']});
+}
+</script>
+</p>
+<p><!--<script type="text/python">
+from browser import html, document
+# Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
+user_input_temp = input("請輸入攝氏溫度值:")
+# 接著列出 user_input_temp 變數的資料型別
+# 但是在頁面中 Brython 的 print() 將會顯示在 log 而非頁面
+print(type(user_input_temp))
+# 這裡定義一個 brython_div 變數, 透過 document[] 與頁面中 id="brython_div" 的位置對應
+brython_div = document["brython_div"]
+# 看能不能直接將變數值字串列在標註 id 為 "brython_div" 的頁面位置
+brython_div <= user_input_temp
+# 之後若要列出 html, 則需要透過 Brython 的 html 模組
+</script>
+--></p>
 <h2>w13</h2>
 <p><a href="https://mdecp2022.github.io/site-leekuchu006/content/Brython.html?src=https://gist.githubusercontent.com/leekuchu006/c7a9155b931d49c60de3787676e590f4/raw/41c695cc09a0e42b23dfadaca97bd1e4d93b93f0/w13%2520%25E6%25BA%25AB%25E5%25BA%25A6%25E8%25BD%2589%25E6%258F%259B">溫度轉換程式範例</a></p>
 <h2>w14</h2>
-<p></p>
+<p>以下為 w14 缺考名單:<br/>41123209<br/>41123211<br/>41123218<br/>41123219<br/>41123225<br/>41123227<br/>41123228<br/>41123232<br/>41123236<br/>41123240<br/>41123247<br/>&lt;completed in 1323.00 ms&gt;</p>
 <h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
@@ -281,7 +311,7 @@ doc["aitetris"].bind("click", aitetris.do)
 <p><!-- 執行與清除按鈕結束 --></p>
 <p></p>
 <p><!-- 程式執行 ouput 區 --></p>
-<textarea autocomplete="off" id="kw_console2"></textarea>
+<p><textarea autocomplete="off" id="kw_console2"></textarea></p>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <p></p>
 <!-- editor2 結束 --><hr/>
