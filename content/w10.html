@@ -141,9 +141,9 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>w11</h1>
-<p><a href="https://mdecp2022.github.io/site-leekuchu006/content/Brython.html?src=https://gist.githubusercontent.com/leekuchu006/abad1470573a82e8b463c91c42ba9d4f/raw/b0b2b61a699c67f3c0d0ad43b39679152880b43c/gistfile1.txt">w11缺考名單產生指令</a></p>
-<p>====================<br/>以下為 w11 缺考名單:<br/>41123201<br/>41123218<br/>41123219<br/>41123225<br/>41123240<br/>41123245<br/>41123246<br/>&lt;completed in 1214.00 ms&gt;</p>
+    <div id="tipue_search_content">HW << <a href='HW.html'>Previous</a> <a href='w11.html'>Next</a> >> w11<br /><h1>w10</h1>
+<p><a href="https://mdecp2022.github.io/site-leekuchu006/content/Brython.html?src=https://gist.githubusercontent.com/leekuchu006/bf5f12f37450b07a9056d8550a9d7f75/raw/896190e09224c5f0a1b1d637f6bba9e50df062c1/gistfile1.txt">w10缺考名單產生指令</a></p>
+<p>====================<br/>以下為 w10 缺考名單:<br/>41123201<br/>41123218<br/>41123225<br/>41123228<br/>41123229<br/>41123234<br/>41123236<br/>41123239<br/>41123240<br/>41123243<br/>41123245<br/>41123246<br/>41123250</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import ast
 
 # get stud_list first
@@ -159,8 +159,8 @@ def get_stud(c_name):
     
 cp_stud = get_stud("1b")
 
-# get w11 quiz result
-cp_w11_quiz_url = "https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/8e59f90d8ff4f1ad4fecd4f7ee159f91eb6addf9/cp1b_w11_quiz_result.json"
+# get w10 quiz result
+cp_w10_quiz_url = "https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/a6825f13b1bb0b61e09e74dd117729eefe1d947f/20221110_cp1b_w10_quiz.json"
 
 def get_score(url):
     json_data = open(url).read()
@@ -173,7 +173,7 @@ def get_score(url):
         quiz_dict[stud_id] = stud_score
     return quiz_dict
     
-cp_quiz = get_score(cp_w11_quiz_url)
+cp_quiz = get_score(cp_w10_quiz_url)
 cp_abs = []
 for stud in cp_stud:
     try:
@@ -184,10 +184,10 @@ for stud in cp_stud:
         cp_abs.append(stud)
 # 列出缺考名單
 print("="*20)
-print("以下為 w11 缺考名單:")
+print("以下為 w10 缺考名單:")
 for stud in cp_abs:
     print(stud)</pre>
-<p><br/><br/><br/><br/></p><br />w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
+<p></p><br />HW << <a href='HW.html'>Previous</a> <a href='w11.html'>Next</a> >> w11</div>
         
     <!-- footer -->
       <div class="container">

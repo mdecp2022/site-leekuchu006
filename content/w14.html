@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li><a href='w11.html'>w11</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li><a href='w14.html'>w14</a><li><a href='w15.html'>w15</a></li></ul><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li><a href='w14.html'>w14</a><li><a href='w15.html'>w15</a><li><a href='w16.html'>w16</a></li></ul><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -142,10 +142,52 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">w13 << <a href='w13.html'>Previous</a> <a href='w15.html'>Next</a> >> w15<br /><h1>w14</h1>
-<p>以下為 w14 缺考名單:<br/>41123209<br/>41123211<br/>41123218<br/>41123219<br/>41123225<br/>41123227<br/>41123228<br/>41123232<br/>41123236<br/>41123240<br/>41123247<br/>&lt;completed in 1323.00 ms&gt;</p>
-<p>本週心得:</p>
-<p>      這週解決了沒辦法acp的問題，原來是token沒有設置好，終於可以完整的整理自己的網頁，也可以更專心的學指令的運作機制</p>
-<br />w13 << <a href='w13.html'>Previous</a> <a href='w15.html'>Next</a> >> w15</div>
+<p><a href="https://mdecp2022.github.io/site-leekuchu006/content/Brython.html?src=https://gist.githubusercontent.com/leekuchu006/be44b1389b320f320597927fa3976d55/raw/775f996a2451f70596e8967e3d7e0f7a94270dbf/gistfile1.txt">w14缺考名單產生指令</a></p>
+<p>====================<br/>以下為 w14 缺考名單:<br/>41123209<br/>41123211<br/>41123218<br/>41123219<br/>41123225<br/>41123227<br/>41123228<br/>41123232<br/>41123236<br/>41123240<br/>41123247</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import ast
+
+# get stud_list first
+
+def get_stud(c_name):
+    courses = {"1a": "0747", "1b": "0761", "2a": "0773", "2b": "0786"}
+    #c_name = "1b"
+    c = courses[c_name]
+    url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + c + "&amp;column=True"
+    data = open(url).read().split("\n")
+    stud = data[:-1]
+    return stud
+    
+cp_stud = get_stud("1b")
+
+# get w14 quiz result
+cp_w14_quiz_url = "https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/a0be253dc36fb3d0d2e1878950dae0b13d07a8f6/2022_1208_cp_w14_1b_quiz.json"
+
+def get_score(url):
+    json_data = open(url).read()
+    big_dict = ast.literal_eval(json_data)
+    data = big_dict["body"]["testuser"]
+    quiz_dict = {}
+    for i in data:
+        stud_id = data[i]["user_name"]
+        stud_score = int(float(data[i]["total_score"]))
+        quiz_dict[stud_id] = stud_score
+    return quiz_dict
+    
+cp_quiz = get_score(cp_w14_quiz_url)
+cp_abs = []
+for stud in cp_stud:
+    try:
+        print(stud, cp_quiz[stud])
+    except:
+        # 缺考者沒有 quiz 成績
+        print(stud, "缺")
+        cp_abs.append(stud)
+# 列出缺考名單
+print("="*20)
+print("以下為 w14 缺考名單:")
+for stud in cp_abs:
+    print(stud)</pre>
+<p><br/><br/></p><br />w13 << <a href='w13.html'>Previous</a> <a href='w15.html'>Next</a> >> w15</div>
         
     <!-- footer -->
       <div class="container">
